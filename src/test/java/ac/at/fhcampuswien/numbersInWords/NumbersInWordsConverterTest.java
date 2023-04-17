@@ -1,6 +1,5 @@
 package ac.at.fhcampuswien.numbersInWords;
 
-import ac.at.fhcampuswien.numbersInWords.exceptions.NumberConversionException;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Assertions;
@@ -13,17 +12,6 @@ public class NumbersInWordsConverterTest {
     void should_create_class() {
         // Assert
         Assertions.assertNotNull(numbersInWordsConverter);
-    }
-
-    @Test
-    void should_convert_one() {
-        // Arrange
-        int toConvert = 1;
-        String expected = "one";
-        // Act
-        String result = numbersInWordsConverter.convert(toConvert);
-        // Assert
-        Assertions.assertEquals(expected, result);
     }
 
     @Test
@@ -52,6 +40,29 @@ public class NumbersInWordsConverterTest {
                 "Excepted convert() to throw exception, but it didn't"
         );
         Assertions.assertEquals("Number is not in the valid range (> 0 and < 999 999 999)", exception.getMessage());
+    }
+
+
+    @Test
+    void should_convert_zero() {
+        // Arrange
+        int toConvert = 0;
+        String expected = "zero";
+        // Act
+        String result = numbersInWordsConverter.convert(toConvert);
+        // Assert
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    void should_convert_one() {
+        // Arrange
+        int toConvert = 1;
+        String expected = "one";
+        // Act
+        String result = numbersInWordsConverter.convert(toConvert);
+        // Assert
+        Assertions.assertEquals(expected, result);
     }
 
     @Test
